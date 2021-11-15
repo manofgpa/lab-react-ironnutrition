@@ -16,7 +16,8 @@ function App() {
   }
 
   const handleNewFood = (newFood) => {
-    setFoods(...foods, newFood)
+    setFoods([...foods, newFood])
+    setIsModalOpen(false)
   }
 
 
@@ -24,10 +25,10 @@ function App() {
     <div className="container">
       <Modal isOpen={isModalOpen} handleOpenModal={handleOpenModal} handleNewFood={handleNewFood} />
       <Header handleOpenModal={handleOpenModal} />
-      <div class="columns">
-        <div class="column">
+      <div className="columns">
+        <div className="column">
           {foods.map(food => (
-            <FoodBox food={food} />
+            <FoodBox food={food} key={food.name} />
           ))}
         </div>
       </div>
