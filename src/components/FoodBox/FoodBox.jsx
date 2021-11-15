@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FoodBox.css';
 
-export const FoodBox = ({ food }) => {
+export const FoodBox = ({ food, handleNewTodayFood }) => {
   const { name, calories, image } = food;
 
   const [quantity, setQuantity] = useState(0);
@@ -51,6 +51,15 @@ export const FoodBox = ({ food }) => {
                 disabled={quantity >= 10}
               >
                 +
+              </button>
+            </div>
+            <div className="control">
+              <button
+                id="add"
+                className="button is-primary"
+                onClick={() => handleNewTodayFood({ name, calories, quantity })}
+              >
+                Add
               </button>
             </div>
           </div>

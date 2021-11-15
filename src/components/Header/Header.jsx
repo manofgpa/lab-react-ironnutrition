@@ -11,7 +11,7 @@ export const Header = ({ handleOpenModal, handleSearch }) => {
           className="input search-bar"
           name="search"
           placeholder="Search"
-          onChange={(e) => handleSearch(e)}
+          onKeyUp={(e) => handleSearch(e.target.value)}
         />
       </div>
       <button className="button is-info new-food" onClick={handleOpenModal}>
