@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-export const Header = ({ handleNewFood }) => {
+export const Header = ({ handleOpenModal }) => {
   return (
     <>
       <h1 class="title">IronNutrition</h1>
@@ -14,7 +14,7 @@ export const Header = ({ handleNewFood }) => {
           value=""
         />
       </div>
-      <button class="button is-info new-food" onClick={handleNewFood}>
+      <button class="button is-info new-food" onClick={handleOpenModal}>
         New food
       </button>
     </>
