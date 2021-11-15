@@ -10,7 +10,6 @@ function App() {
   const [foods, setFoods] = useState(data)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-
   const handleOpenModal = () => {
     setIsModalOpen(!isModalOpen)
   }
@@ -20,11 +19,17 @@ function App() {
     setIsModalOpen(false)
   }
 
+  const handleSearch = (e) => {
+
+    const filteredSearch = data.filter(food => food.name.toLowerCase().includes(e.target.value))
+    setFoods(filteredSearch)
+  }
+
 
   return (
     <div className="container">
       <Modal isOpen={isModalOpen} handleOpenModal={handleOpenModal} handleNewFood={handleNewFood} />
-      <Header handleOpenModal={handleOpenModal} />
+      <Header handleOpenModal={handleOpenModal} handleSearch={handleSearch} />
       <div className="columns">
         <div className="column">
           {foods.map(food => (
